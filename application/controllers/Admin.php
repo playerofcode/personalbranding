@@ -1604,7 +1604,15 @@ class Admin extends CI_Controller {
 	return redirect(base_url().'admin/all_images');
 	}
 	}
-
+	//20 Aug, 2021
+	public function media_category()
+	{
+	$data['media_category']=$this->model->getMediaCategory();
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/media_category',$data);
+	$this->load->view('admin/footer');
+	}
 }//main class end
 
 ?>

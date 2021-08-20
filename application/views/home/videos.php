@@ -17,36 +17,18 @@
           <p class="mb-5 text-muted">Nanotechnology immersion along the information highway will close the loop on focusing</p>
         </header> -->
         <div class="row">
+          <?php foreach ($videos as $key): ?>
           <div class="col-lg-4">
            <div class="card">
              <div class="card-body p-0">
-               <iframe width="100%" height="auto" src="https://www.youtube.com/embed/WLY0a5v7x94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               <iframe width="100%" height="auto" src="<?php echo $key->link;?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
              </div>
              <div class="card-footer bg-primary text-white">
-               Speech title goes here
+               <?php echo $key->title;?>
              </div>
            </div>
           </div>
-          <div class="col-lg-4">
-           <div class="card">
-             <div class="card-body p-0">
-               <iframe width="100%" height="auto" src="https://www.youtube.com/embed/WLY0a5v7x94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-             </div>
-             <div class="card-footer bg-primary text-white">
-               Speech title goes here
-             </div>
-           </div>
-          </div>
-          <div class="col-lg-4">
-           <div class="card">
-             <div class="card-body p-0">
-               <iframe width="100%" height="auto" src="https://www.youtube.com/embed/WLY0a5v7x94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-             </div>
-             <div class="card-footer bg-primary text-white">
-               Speech title goes here
-             </div>
-           </div>
-          </div>
+          <?php endforeach ?>
         </div>
       </div>
     </section>

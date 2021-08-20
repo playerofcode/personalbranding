@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vidhayak Name</title>
+    <title id="print_name1"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -24,20 +24,20 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-4 bg-primary py-2 text-center text-lg-left">
-              <p class="mb-0 text-small"><i class="fas fa-clock mr-2"></i>Indira Nagar, Sector 11, Lucknow</p>
+              <p class="mb-0 text-small"><i class="fas fa-clock mr-2"></i><span id="print_address1"></span></p>
             </div>
             <div class="col-lg-8 text-right py-2 text-center text-lg-right">
               <ul class="list-inline mb-0">
-                <li class="list-inline-item"><a class="font-weight-normal text-small reset-anchor" href="#"><i class="fas fa-mobile mr-2"></i>+91 421 895 6523</a></li>
+                <li class="list-inline-item"><a class="font-weight-normal text-small reset-anchor" href="javascript:void(0);"><i class="fas fa-mobile mr-2"></i><span id="print_number1"></span></a></li>
                 <li class="list-inline-item">|</li>
-                <li class="list-inline-item"><a class="font-weight-normal text-small reset-anchor" href="#"><i class="fas fa-envelope mr-2"></i>contact@vidhayakname.com</a></li>
+                <li class="list-inline-item"><a class="font-weight-normal text-small reset-anchor" href="javascript:void(0);"><i class="fas fa-envelope mr-2"></i><span id="print_email1"></span></a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
       <nav class="navbar navbar-expand-lg navbar-light py-3 bg-white shadow-sm">
-        <div class="container"><a class="navbar-brand" href="<?php echo base_url();?>">Vidhayak Name</a>
+        <div class="container"><a class="navbar-brand" href="<?php echo base_url();?>" id="print_name2"></a>
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">

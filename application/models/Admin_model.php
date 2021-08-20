@@ -498,6 +498,16 @@ class Admin_model extends CI_model{
 			$this->db->where('id',$id);
 			return $this->db->update('images',$data);
 		}
+		//20 Aug, 2021
+		public function getMediaCategory($id='')
+		{
+			if($id):
+				return $this->db->get_where('media_category',array('id'=>$id))->result();
+			else:
+				$this->db->order_by('id','desc');
+				return $this->db->get('media_category')->result();
+			endif;
+		}
 }
 
 

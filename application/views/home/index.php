@@ -3,7 +3,7 @@
     <section>
       <div class="owl-carousel owl-theme-default hero-slider owl-nav-custom">
         <!-- Hero Slide-->
-        <div class="hero-slide bg-size bg-center py-5" style="background: url(img/hero-banner-1.jpg)">
+        <div class="hero-slide bg-size bg-center py-5" style="background: url(<?php echo base_url('assets/');?>img/hero-banner-1.jpg)">
           <!-- <div class="container text-white py-5 index-forward">
             <div class="row">
               <div class="col-lg-7">
@@ -18,7 +18,7 @@
           </div> -->
         </div>
         <!-- Hero Slide -->
-        <div class="hero-slide bg-size bg-center py-5" style="background: url(img/hero-banner-2.jpg)">
+        <div class="hero-slide bg-size bg-center py-5" style="background: url(<?php echo base_url('assets/');?>img/hero-banner-2.jpg)">
          <!--  <div class="container text-white py-5 index-forward">
             <div class="row">
               <div class="col-lg-7">
@@ -33,7 +33,7 @@
           </div> -->
         </div>
         <!-- Hero Slide -->
-        <div class="hero-slide bg-size bg-center py-5" style="background: url(img/hero-banner-3.jpg)">
+        <div class="hero-slide bg-size bg-center py-5" style="background: url(<?php echo base_url('assets/');?>img/hero-banner-3.jpg)">
           <!-- <div class="container text-white py-5 index-forward">
             <div class="row">
               <div class="col-lg-7">
@@ -55,7 +55,7 @@
         <div class="row">
           <div class="col-lg-6 order-2 order-lg-1">
             <p class="h6 mb-1 text-uppercase text-primary mb-3">ABOUT</p>
-            <h2 class="mb-4">Vidhayak Name</h2>
+            <h2 class="mb-4" id="print_name3"></h2>
             <p class="text-small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <ul class="list-check list-unstyled row px-3 mb-4">
               <li class="text-small text-muted col-lg-6 mb-2">Acquire live chat enables sales</li>
@@ -94,7 +94,7 @@
                 <use xlink:href="#laptop-screen-1"> </use>
               </svg>
               <h3 class="h5"><a href="#">Speech</a></h3>
-              <p class="text-small mb-0 text-muted">LRM Shri Rajnath Singh's Speech- Get all details about the latest speeches of Shri Rajnath Singh.</p>
+              <p class="text-small mb-0 text-muted"><span id="print_name4"></span>'s Speech- Get all details about the latest speeches of Shri Rajnath Singh.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -103,7 +103,7 @@
                 <use xlink:href="#quality-1"> </use>
               </svg>
                <h3 class="h5"><a href="#">Photos</a></h3>
-              <p class="text-small mb-0 text-muted">Download Photos: Get real-time update of Defence Minister Rajnath Singh.</p>
+              <p class="text-small mb-0 text-muted">Download Photos: Get real-time update of <span id="print_name5"></span>.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -112,7 +112,7 @@
                 <use xlink:href="#survey-1"> </use>
               </svg>
               <h3 class="h5"><a href="#">Videos</a></h3>
-              <p class="text-small mb-0 text-muted">Watch the latest update of Defence Minister Shri Rajnath Singh in the video section.</p>
+              <p class="text-small mb-0 text-muted">Watch the latest update of <span id="print_name6"></span> in the video section.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -155,7 +155,7 @@
                 <h2 class="text-white mb-2">You Always ready to help you.</h2>
                 <p class="text-white mb-0">We believe that we can make some big toghter. Share your ideas with us fr better tomorrow.</p>
               </div>
-              <div class="col-lg-3 ml-auto text-center text-lg-right"><a class="btn btn-outline-light" href="#">Request a quote</a></div>
+              <div class="col-lg-3 ml-auto text-center text-lg-right"><a class="btn btn-outline-light" href="<?php echo base_url('home/contact');?>">Request a quote</a></div>
             </div>
           </div>
         </div>

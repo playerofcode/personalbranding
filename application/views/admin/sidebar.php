@@ -23,9 +23,9 @@
                                 <li class="sidebar-item"><a href="<?php echo base_url('admin/all_images');?>" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> All Images </span></a></li>
                             </ul>
                         </li> 
-                        <li class="sidebar-item"><a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Manage Blog </span></a>
+                        <li class="sidebar-item"><a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Media Covarage </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="<?php echo base_url('admin/blog');?>" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Add Blog </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo base_url('admin/media_category');?>" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Add Category </span></a></li>
                                 <li class="sidebar-item"><a href="<?php echo base_url('admin/bloglist');?>" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Blog List</span></a></li>
                             </ul>
                         </li> 

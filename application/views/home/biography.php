@@ -1,11 +1,11 @@
-    <section class="hero bg-cover bg-position py-4" style="background: url(img/hero-banner-1.jpg)">
+    <section class="hero bg-cover bg-position py-4" style="background: url(<?php echo base_url('assets/');?>img/hero-banner-1.jpg)">
       <div class="container py-5 index-forward text-white">
-        <h1>About Us</h1>
+        <h1>Biography</h1>
         <!-- Breadcrumb-->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-none mb-0 p-0">
             <li class="breadcrumb-item pl-0"><a href="<?php echo base_url();?>"> <i class="fas fa-home mr-2"></i>Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">About us</li>
+            <li class="breadcrumb-item active" aria-current="page">Biography</li>
           </ol>
         </nav>
       </div>
@@ -18,7 +18,7 @@
           </div>
           <div class="col-lg-6">
             <p class="h6 mb-1 text-uppercase text-primary mb-3">Biography</p>
-            <h2 class="mb-4">Vidhayak Name</h2>
+            <h2 class="mb-4" id="print_name7"></h2>
             <p class="text-small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <ul class="list-check list-unstyled row px-3 mb-4">
               <li class="text-small text-muted col-lg-6 mb-2">Acquire live chat enables sales</li>
@@ -28,17 +28,17 @@
               <li class="text-small text-muted col-lg-6 mb-2">Acquire live chat enables sales</li>
               <li class="text-small text-muted col-lg-6 mb-2">Learn from customer feedback</li>
             </ul>
-            <ul class="list-inline py-4 border-top border-bottom d-flex align-items-center">
+           <!--  <ul class="list-inline py-4 border-top border-bottom d-flex align-items-center">
               <li class="list-inline-item pr-4 mr-0"><img src="img/about-sign.png" alt="" width="80"></li>
               <li class="list-inline-item px-4 mr-0 border-left">
                 <h5 class="mb-0">Jhon Martin</h5>
                 <p class="small font-weight-normal text-muted mb-0">Chairnan and founder </p>
               </li>
               <li class="list-inline-item pl-4 border-left">
-                <h5 class="mb-0">+91 421 895 6523</h5>
+                <h5 class="mb-0" id="print_number5"></h5>
                 <p class="small font-weight-normal text-muted mb-0">Call to ask any question</p>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
       </div>

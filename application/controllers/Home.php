@@ -28,8 +28,9 @@ class Home extends CI_Controller {
 	}
 	public function speeches()
 	{
+		$data['speeches']=$this->model->getSpeeches();
 		$this->load->view('home/header');
-		$this->load->view('home/speeches');
+		$this->load->view('home/speeches',$data);
 		$this->load->view('home/footer');
 	}
 	public function media_coverage()
@@ -40,14 +41,16 @@ class Home extends CI_Controller {
 	}
 	public function videos()
 	{
+		$data['videos']=$this->model->getVideos();
 		$this->load->view('home/header');
-		$this->load->view('home/videos');
+		$this->load->view('home/videos',$data);
 		$this->load->view('home/footer');
 	}
 	public function photos()
 	{
+		$data['images']=$this->model->getImages();
 		$this->load->view('home/header');
-		$this->load->view('home/photos');
+		$this->load->view('home/photos',$data);
 		$this->load->view('home/footer');
 	}
 	public function getEnquiry()
@@ -73,5 +76,21 @@ class Home extends CI_Controller {
 		$this->session->set_flashdata('msg', "Something went wrong. Try again");
 			return redirect(base_url().'home/contact');
   		endif;
+	}
+	public function getName()
+	{
+		echo $this->model->getName(1);
+	}
+	public function getAddress()
+	{
+		echo $this->model->getAddress(1);
+	}
+	public function getNumber()
+	{
+		echo $this->model->getNumber(1);
+	}
+	public function getEmail()
+	{
+		echo $this->model->getEmail(1);
 	}
 }

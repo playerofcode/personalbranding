@@ -13,48 +13,15 @@
     <section class="py-5 shadow-sm index-forward">
       <div class="container py-5">
         <div class="row">
+          <?php foreach ($images as $key): ?>
           <div class="col-lg-4">
-           <div class="card m-2">
+           <div class="card m-2 shadow">
              <div class="card-body p-0">
-             <img src="https://www.rajnathsingh.in/wp-content/uploads/2020/02/RM-India.jpg" width="100%" height="250px">
+             <img src="<?php echo base_url($key->photo);?>" width="100%" height="250px">
              </div>
            </div>
           </div>
-          <div class="col-lg-4">
-           <div class="card m-2">
-             <div class="card-body p-0">
-             <img src="https://www.rajnathsingh.in/wp-content/uploads/2020/02/RM-India.jpg" width="100%" height="250px">
-             </div>
-           </div>
-          </div>
-          <div class="col-lg-4">
-           <div class="card m-2">
-             <div class="card-body p-0">
-             <img src="https://www.rajnathsingh.in/wp-content/uploads/2020/02/RM-India.jpg" width="100%" height="250px">
-             </div>
-           </div>
-          </div>
-          <div class="col-lg-4">
-           <div class="card m-2">
-             <div class="card-body p-0">
-             <img src="https://www.rajnathsingh.in/wp-content/uploads/2020/02/RM-India.jpg" width="100%" height="250px">
-             </div>
-           </div>
-          </div>
-          <div class="col-lg-4">
-           <div class="card m-2">
-             <div class="card-body p-0">
-             <img src="https://www.rajnathsingh.in/wp-content/uploads/2020/02/RM-India.jpg" width="100%" height="250px">
-             </div>
-           </div>
-          </div>
-          <div class="col-lg-4">
-           <div class="card m-2">
-             <div class="card-body p-0">
-             <img src="https://www.rajnathsingh.in/wp-content/uploads/2020/02/RM-India.jpg" width="100%" height="250px">
-             </div>
-           </div>
-          </div>
+          <?php endforeach ?>
         </div>
       </div>
     </section>
