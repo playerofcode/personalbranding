@@ -6,7 +6,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dashboard');?>">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Media Category</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Cell List</li>
                                 </ol>
                             </nav>
                         </div>
@@ -18,7 +18,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Add Media Category</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Add Cell</button>
                             </div>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('msg')): ?>
@@ -29,8 +29,7 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Category Name</th>
-                                                <th>Created At</th>
+                                                <th>Cell Name</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
@@ -38,13 +37,16 @@
                                         <tbody>
                                             <?php 
                                             $i=1;
-                                            foreach ($media_category as $key): ?>
+                                            foreach ($cell as $key): ?>
                                               <tr>
                                                 <td><?php echo $i; ?></td>
-                                                <td><?php echo $key->cat_name; ?></td>
-                                                <td><?php echo $key->created_at; ?></td>
-                                                <td><a href="<?php echo base_url('admin/editMediaCategory/'.$key->id);?>" class="btn btn-primary btn-sm">Edit</a></td>
-                                                 <td><a onclick="return confirm('Are you sure?');" href="<?php echo base_url('admin/deleteMediaCategory/'.$key->id);?>" class="btn btn-danger btn-sm">Delete</a></td>
+                                                <td><?php echo $key->cell_name; ?></td>
+                                                <td>
+                                                    <a href="<?php echo base_url('admin/editCell/'.$key->id);?>" class="btn btn-primary">Edit</a>
+                                                </td>
+                                                <td>
+                                                    <a href="<?php echo base_url('admin/deleteCell/'.$key->id);?>" class="btn btn-success">Delete</a>
+                                                </td>
                                             <?php $i++;endforeach ?>
                                         </tbody>
                                     </table>
@@ -60,20 +62,20 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Media Categoory</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Cell</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form method="POST" action="<?php echo base_url('admin/addMediaCategory');?>">
+      <form action="<?php echo base_url('admin/addCell');?>" method="POST">
       <div class="modal-body">
         <div class="form-group">
-            <input type="text" name="cat_name" class="form-control" placeholder="Enter Media Category" required="">
+            <input type="text" name="cell_name" placeholder="Enter Cell Name" required="" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Add Category</button>
+        <button type="submit" class="btn btn-primary">Add Cell</button>
       </div>
       </form>
     </div>

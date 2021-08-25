@@ -2,11 +2,13 @@
       <div class="bg-dark py-5 text-white">
         <div class="container">
           <div class="row py-5">
-            <div class="col-lg-4 col-md-6"><img class="mb-4" src="img/logo-white.svg" alt="" width="200">
-              <p class="text-muted text-small mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <p class="mb-1"><i class="fas fa-envelope mr-3 text-primary fa-fw"></i><span class="text-small text-muted"><span id="print_email2"></span></span></p>
-              <p class="mb-1"><i class="fas fa-mobile mr-3 text-primary fa-fw"></i><span class="text-small text-muted" id="print_number2"></span></p>
-              <p class="mb-1"><i class="fas fa-map-marker-alt mr-3 text-primary fa-fw"></i><span class="text-small text-muted" id="print_address2"></span></p>
+            <div class="col-lg-4 col-md-6">
+
+              <!--<img class="mb-4" src="<?php echo base_url('assets/');?>img/logo-white.svg" alt="" width="200"> -->
+              <p class="text-muted text-small mb-4" id="print_short_bio2"><?php  echo $short_bio; ?></p>
+              <p class="mb-1"><i class="fas fa-envelope mr-3 text-primary fa-fw"></i><span class="text-small text-muted"><?php echo $email; ?></span></p>
+              <p class="mb-1"><i class="fas fa-mobile mr-3 text-primary fa-fw"></i><span class="text-small text-muted" id="print_number2"><?php echo $mobno; ?></p>
+              <p class="mb-1"><i class="fas fa-map-marker-alt mr-3 text-primary fa-fw"></i><span class="text-small text-muted" id="print_address2"><?php echo $address; ?></span></p>
             </div>
             <div class="col-lg-2 col-md-6">
               <h5 class="mt-3 mb-4 font-weight-normal">Quick links</h5>
@@ -30,8 +32,8 @@
               </ul>
             </div>
             <div class="col-lg-4 col-md-6">
-              <h5 class="mt-3 mb-4 font-weight-normal">Latest news</h5>
-              <ul class="list-unstyled mb-0">
+              <h5 class="mt-3 mb-4 font-weight-normal">Social Media</h5>
+              <!-- <ul class="list-unstyled mb-0">
                 <li class="d-flex mb-4">
                   <div class="pr-2"><img src="<?php echo base_url('assets/'); ?>img/blog-thumb-1.jpg" alt="" width="60"></div>
                   <div class="ml-3">
@@ -46,7 +48,7 @@
                     <h6 class="text-light font-weight-normal mb-0">Successful Growth In Business 2018</h6><a class="reset-anchor text-primary text-small" href="#">Read more<i class="fas fa-angle-right ml-2"></i></a>
                   </div>
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </div>
         </div>
@@ -64,95 +66,114 @@
     <script src="<?php echo base_url('assets/');?>vendor/modal-video/js/modal-video.js"></script>
     <script src="<?php echo base_url('assets/');?>vendor/leaflet/leaflet.js"></script>
     <script src="<?php echo base_url('assets/');?>js/front.js"></script>
-    <script>
-      var print_name1=document.getElementById('print_name1');
-      var print_name2=document.getElementById('print_name2');
-      var print_name3=document.getElementById('print_name3');
-      var print_name4=document.getElementById('print_name4');
-      var print_name5=document.getElementById('print_name5');
-      var print_name6=document.getElementById('print_name6');
-      var print_name7=document.getElementById('print_name7');
-      const getName = () => {
-        $.ajax({
-           url:"<?php echo base_url('home/getName');?>",
-            method:"GET",
-            success:function(data)
-            {
-              if(data !='')
-              {
-              print_name1.innerHTML=data;
-              print_name2.innerHTML=data;
-              print_name3.innerHTML=data;
-              print_name4.innerHTML=data;
-              print_name5.innerHTML=data;
-              print_name6.innerHTML=data;
-              print_name7.innerHTML=data;
-              }
-            }
-        });
-      }
-      getName();
-      var print_address1=document.getElementById('print_address1');
-      var print_address2=document.getElementById('print_address2');
-      var print_address3=document.getElementById('print_address3');
-      const getAddress = () =>{
-        $.ajax({
-          url:"<?php echo base_url('home/getAddress');?>",
-            method:"GET",
-            success:function(data)
-            {
-              if(data !='')
-              {
-              print_address1.innerHTML=data;
-              print_address2.innerHTML=data;
-              print_address3.innerHTML=data;
-              }
-            }
-        });
-      }
-      getAddress();
-      var print_number1=document.getElementById('print_number1');
-      var print_number2=document.getElementById('print_number2');
-      var print_number3=document.getElementById('print_number3');
-      var print_number4=document.getElementById('print_number4');
-      var print_number5=document.getElementById('print_number5');
-      const getNumber = () =>{
-         $.ajax({
-          url:"<?php echo base_url('home/getNumber');?>",
-            method:"GET",
-            success:function(data)
-            {
-              if(data !='')
-              {
-              print_number1.innerHTML=data;
-              print_number2.innerHTML=data;
-              print_number3.innerHTML=data;
-              print_number4.innerHTML=data;
-              print_number5.innerHTML=data;
-              }
-            }
-          });
-      }
-      getNumber();
-      var print_email1=document.getElementById('print_email1');
-      var print_email2=document.getElementById('print_email2');
-      var print_email3=document.getElementById('print_email3');
-      const getEmail = () =>{
-        $.ajax({
-          url:"<?php echo base_url('home/getEmail');?>",
-            method:"GET",
-            success:function(data)
-            {
-            if(data !='')
-            { 
-            print_email1.innerHTML=data;
-            print_email2.innerHTML=data;
-            print_email3.innerHTML=data;
-            }
-            }
-        });
-      }
-      getEmail();
+    <script type="text/javascript" defer>
+      // var print_name1=document.getElementById('print_name1');
+      // var print_name2=document.getElementById('print_name2');
+      // var print_name3=document.getElementById('print_name3');
+      // var print_name4=document.getElementById('print_name4');
+      // var print_name5=document.getElementById('print_name5');
+      // var print_name6=document.getElementById('print_name6');
+      // var print_name7=document.getElementById('print_name7');
+      // const getName = () => {
+      //   $.ajax({
+      //      url:"<?php echo base_url('home/getName');?>",
+      //       method:"GET",
+      //       success:function(data)
+      //       {
+      //         if(data !='')
+      //         {
+      //         print_name1.innerHTML=data;
+      //         print_name2.innerHTML=data;
+      //         print_name3.innerHTML=data;
+      //         print_name4.innerHTML=data;
+      //         print_name5.innerHTML=data;
+      //         print_name6.innerHTML=data;
+      //         print_name7.innerHTML=data;
+      //         }
+      //       }
+      //   });
+      // }
+      // getName();
+      // var print_address1=document.getElementById('print_address1');
+      // var print_address2=document.getElementById('print_address2');
+      // var print_address3=document.getElementById('print_address3');
+      // const getAddress = () =>{
+      //   $.ajax({
+      //     url:"<?php echo base_url('home/getAddress');?>",
+      //       method:"GET",
+      //       success:function(data)
+      //       {
+      //         if(data !='')
+      //         {
+      //         print_address1.innerHTML=data;
+      //         print_address2.innerHTML=data;
+      //         print_address3.innerHTML=data;
+      //         }
+      //       }
+      //   });
+      // }
+      // getAddress();
+      // var print_number1=document.getElementById('print_number1');
+      // var print_number2=document.getElementById('print_number2');
+      // var print_number3=document.getElementById('print_number3');
+      // var print_number4=document.getElementById('print_number4');
+      // var print_number5=document.getElementById('print_number5');
+      // const getNumber = () =>{
+      //    $.ajax({
+      //     url:"<?php echo base_url('home/getNumber');?>",
+      //       method:"GET",
+      //       success:function(data)
+      //       {
+      //         if(data !='')
+      //         {
+      //         print_number1.innerHTML=data;
+      //         print_number2.innerHTML=data;
+      //         print_number3.innerHTML=data;
+      //         print_number4.innerHTML=data;
+      //         print_number5.innerHTML=data;
+      //         }
+      //       }
+      //     });
+      // }
+      // getNumber();
+      // var print_email1=document.getElementById('print_email1');
+      // var print_email2=document.getElementById('print_email2');
+      // var print_email3=document.getElementById('print_email3');
+      // const getEmail = () =>{
+      //   $.ajax({
+      //     url:"<?php echo base_url('home/getEmail');?>",
+      //       method:"GET",
+      //       success:function(data)
+      //       {
+      //       if(data !='')
+      //       { 
+      //       print_email1.innerHTML=data;
+      //       print_email2.innerHTML=data;
+      //       print_email3.innerHTML=data;
+      //       }
+      //       }
+      //   });
+      // }
+      // getEmail();
+      // var print_short_bio1=document.getElementById('print_short_bio1');
+      // var print_short_bio2=document.getElementById('print_short_bio2');
+      // var print_short_bio3=document.getElementById('print_short_bio3');
+      // const getShortBio = () =>{
+      //   $.ajax({
+      //     url:"<?php echo base_url('home/getShortBio');?>",
+      //       method:"GET",
+      //       success:function(data)
+      //       {
+      //       if(data !='')
+      //       {
+      //         print_short_bio1.innerHTML=data;
+      //         print_short_bio2.innerHTML=data;
+      //         print_short_bio3.innerHTML=data;
+      //       }
+      //       }
+      //     });
+      // }
+      // getShortBio();
     </script>
     <script>
      

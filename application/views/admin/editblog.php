@@ -6,7 +6,7 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dashboard');?>">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Blog</li>
                                 </ol>
                             </nav>
@@ -29,23 +29,23 @@
           <form action="<?php echo base_url('admin/updateblog');?>" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label>Title</label>
-            <input type="text" name="title" class="form-control" value="<?php echo set_value('title',$key->title); ?>">
+            <input type="text" name="title" class="form-control" value="<?php echo set_value('title',$key->title); ?>" placeholder="Enter Blog Title">
             <?php echo form_error('title');?>
           </div>
           <div class="form-group">
             <label>Image</label><br>
-            <img src="<?php echo base_url($key->image); ?>" alt="" style="height: 100px;width:100px;">
+            <center><img src="<?php echo base_url($key->image); ?>" alt="" style="height: 100px;width:100px;border:1px dashed orange;border-radius: 10px;margin:5px;box-shadow: 0 5px 10px rgba(0,0,0,0.3);"></center>
             <input type="file" name="image" class="form-control" >
             <?php if(isset($upload_error)){echo $upload_error; } ?>
           </div>
           <div class="form-group">
             <label>Description</label>
-            <textarea name="description" cols="30" rows="5" class="form-control" ><?php echo set_value('description',$key->description); ?></textarea>
+            <textarea name="description" cols="30" rows="5" class="form-control" placeholder="Enter Blog Description"><?php echo set_value('description',$key->description); ?></textarea>
             <?php echo form_error('description');?>
           </div>
           <input type="hidden" name="id" value="<?php echo $key->id;?>">
           <div class="form-group">
-            <input type="submit" name="submitblog" class="btn btn-primary form-control" value="Update">
+            <input type="submit" name="submitblog" class="btn btn-primary" value="Update">
           </div>
         </form>
       <?php endforeach;?>

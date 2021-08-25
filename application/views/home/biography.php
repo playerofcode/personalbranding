@@ -14,20 +14,22 @@
       <div class="container py-5">
         <div class="row">
           <div class="col-lg-5 mb-4 mb-lg-0">
-            <div class="pt-1 bg-primary"><img class="img-fluid" src="<?php echo base_url('assets/');?>img/about-img.jpg" alt=""></div>
+            <div class="p-2 border"><img class="img-fluid" src="<?php if(!empty($profile_picture)):echo base_url($profile_picture);else:echo base_url('assets/img/about-img.jpg');endif;?>" alt=""></div>
           </div>
           <div class="col-lg-6">
             <p class="h6 mb-1 text-uppercase text-primary mb-3">Biography</p>
-            <h2 class="mb-4" id="print_name7"></h2>
-            <p class="text-small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <ul class="list-check list-unstyled row px-3 mb-4">
+            <h2 class="mb-4" id="print_name7"><?php   echo $name; ?></h2>
+        <!--     <p class="text-small text-muted" id="print_short_bio2"></p> -->
+        <p id="print_short_bio3"><?php  echo $short_bio; ?></p>
+
+            <!-- <ul class="list-check list-unstyled row px-3 mb-4">
               <li class="text-small text-muted col-lg-6 mb-2">Acquire live chat enables sales</li>
               <li class="text-small text-muted col-lg-6 mb-2">Learn from customer feedback</li>
               <li class="text-small text-muted col-lg-6 mb-2">Engage - marketing automation</li>
               <li class="text-small text-muted col-lg-6 mb-2">Support -customer support</li>
               <li class="text-small text-muted col-lg-6 mb-2">Acquire live chat enables sales</li>
               <li class="text-small text-muted col-lg-6 mb-2">Learn from customer feedback</li>
-            </ul>
+            </ul> -->
            <!--  <ul class="list-inline py-4 border-top border-bottom d-flex align-items-center">
               <li class="list-inline-item pr-4 mr-0"><img src="img/about-sign.png" alt="" width="80"></li>
               <li class="list-inline-item px-4 mr-0 border-left">

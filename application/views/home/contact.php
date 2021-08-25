@@ -59,21 +59,21 @@
                 <div class="icon bg-primary"><i class="fas fa-map-marker-alt text-white fa-fw"></i></div>
                 <div class="ml-3">
                   <h5 class="mb-0">Address</h5>
-                  <p class="text-muted text-small" id="print_address3"></p>
+                  <p class="text-muted text-small" id="print_address3"><?php  echo $address; ?></p>
                 </div>
               </li>
               <li class="d-flex mb-3">
                 <div class="icon bg-primary"><i class="fas fa-envelope text-white fa-fw"></i></div>
                 <div class="ml-3">
                   <h5 class="mb-0">Email</h5>
-                  <p class="text-muted text-small" id="print_email3"></p>
+                  <p class="text-muted text-small" id="print_email3"><?php  echo $email; ?></p>
                 </div>
               </li>
               <li class="d-flex mb-3">
                 <div class="icon bg-primary"><i class="fas fa-mobile text-white fa-fw"></i></div>
                 <div class="ml-3">
                   <h5 class="mb-0">Phone</h5>
-                  <p class="text-muted text-small" id="print_number3"></p>
+                  <p class="text-muted text-small" id="print_number3"><?php   echo $mobno; ?></p>
                 </div>
               </li>
             </ul>

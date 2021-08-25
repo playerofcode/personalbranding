@@ -7,7 +7,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dashboard');?>">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Add Media</li>
                                 </ol>
                             </nav>
                         </div>
@@ -22,13 +22,22 @@
             <?php endif;?>
        			<div class="card ">
        				<div class="card-header bg-success text-white">
-       					Add Blog
+       					Add Media
        				</div>
        				<div class="card-body">
-       					<form action="<?php echo base_url('admin/checkblog');?>" method="post" enctype="multipart/form-data">
+       					<form action="<?php echo base_url('admin/addMedia');?>" method="post" enctype="multipart/form-data">
+       						<div class="form-group">
+       							<label for="cat_id">Select Media Category</label>
+       							<select name="cat_id" id="cat_id" class="form-control">
+       								<option value="" disabled="" selected="">Select Media Category</option>
+<?php foreach ($media_category as $key):?>
+<option value="<?php echo $key->id;?>"><?php echo $key->cat_name;?></option>
+<?php endforeach;?>
+       							</select>
+       						</div>
 					<div class="form-group">
 						<label>Title</label>
-						<input type="text" name="title" class="form-control" value="<?php echo set_value('title'); ?>" placeholder="Blog Title Here">
+						<input type="text" name="title" class="form-control" value="<?php echo set_value('title'); ?>" placeholder="Title Here">
 						<?php echo form_error('title');?>
 					</div>
 					<div class="form-group">
@@ -38,11 +47,11 @@
 					</div>
 					<div class="form-group">
 						<label>Description</label>
-						<textarea name="description" id="ckeditor"  cols="30" rows="5" class="form-control" placeholder="Blog Description Here...."><?php echo set_value('description'); ?></textarea>
+						<textarea name="description" id="ckeditor"  cols="30" rows="5" class="form-control" placeholder="Description Here...."><?php echo set_value('description'); ?></textarea>
 						<?php echo form_error('description');?>
 					</div>
 					<div class="form-group">
-						<input type="submit" name="submitblog" class="btn btn-success">
+						<input type="submit" class="btn btn-success">
 					</div>
 				</form>
        				</div>

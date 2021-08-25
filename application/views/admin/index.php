@@ -75,9 +75,9 @@
                         <div class="card card-hover">
                             <div class="box bg-success text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-desktop-mac"></i></h1>
-                                <h6 class="text-white">Delivery Partner</h6>
+                                <h6 class="text-white">Media Category</h6>
                                 
-                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/delivery_list');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
+                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/media_category');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
                             </div>
                         </div>
                     </div>
@@ -85,8 +85,8 @@
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-desktop-mac"></i></h1>
-                                <h6 class="text-white">Enquiry</h6>
-                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/enquiry');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
+                                <h6 class="text-white">Media</h6>
+                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/all_media');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
                             </div>
                         </div>
                     </div>
@@ -94,9 +94,9 @@
                         <div class="card card-hover">
                             <div class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-desktop-mac"></i></h1>
-                                <h6 class="text-white">New Order</h6>
+                                <h6 class="text-white">Blog List</h6>
                                 
-                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/new_order');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
+                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/bloglist');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
                             </div>
                         </div>
                     </div>
@@ -104,9 +104,9 @@
                         <div class="card card-hover">
                             <div class="box bg-success text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-desktop-mac"></i></h1>
-                                <h6 class="text-white">Confirm Order</h6>
+                                <h6 class="text-white">Enquiry</h6>
                                 
-                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/confirm_order');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
+                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/enquiry');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
                             </div>
                         </div>
                     </div>
@@ -114,9 +114,9 @@
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-desktop-mac"></i></h1>
-                                <h6 class="text-white">Complete Order</h6>
+                                <h6 class="text-white">Users</h6>
                                 
-                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/complete_order');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
+                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/users');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
                             </div>
                         </div>
                     </div>
@@ -124,9 +124,9 @@
                         <div class="card card-hover">
                             <div class="box bg-success text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-desktop-mac"></i></h1>
-                                <h6 class="text-white">Raise Ticket</h6>
+                                <h6 class="text-white">Cell</h6>
                                 
-                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/raise_ticket');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
+                                 <button class="btn btn-warning"><a href="<?php echo base_url('admin/cell');?>">Click Here <i class="mdi mdi-truck-delivery"></i></a></button>
                             </div>
                         </div>
                     </div>

@@ -30,38 +30,29 @@
     <script src="<?php echo base_url('assets/admin/'); ?>assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="<?php echo base_url('assets/admin/'); ?>assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function(){
-            
-             const getProductCategory = () =>
-            {
-                $.ajax({
-                    url:"<?php echo base_url('admin/getProductCategoryBySideBar');?>",
-                    method:"GET",
-                    success:function(data)
-                    {
-                        //console.log('Query executing..');
-                        //console.log(data);
-                        $('#productByCategory').html(data);
-                    },
-                    error:function(e)
-                    {
-                        console.log(e);
-                    }
-                });
-            }
-            getProductCategory();
-            $('.view_data').click(function(){
-                var order_id=$(this).attr("id");
-                $.ajax({
-                    url:"<?php echo base_url('admin/order_item_info/');?>",
-                    method:"POST",
-                    data:{order_id:order_id},
-                    success:function(data){
-                        $('#order_item_details').html(data);
-                        $('#myModal').modal("show");
-                    }
-                }); 
+        var cell_id=document.getElementById('cell_id');
+        var subcell_id=document.getElementById('subcell_id');
+        cell_id.addEventListener('change',()=>{
+            cell_id=cell_id.value;
+            $.ajax({
+                url:"<?php echo base_url('admin/getSubCellData');?>",
+                method:"POST",
+                data:{cell_id:cell_id},
+                success:function(data)
+                {
+                    //console.log(data);
+                    subcell_id.innerHTML=data;
+                    //alert(data);
+                },
+                error:function(err)
+                {
+                    alert(err);
+                }
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
              $('#cat_id').change(function(){
                 var cat_id=$(this).val();
                 $.ajax({

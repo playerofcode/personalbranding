@@ -8,50 +8,142 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Home_model','model');
 	}
+	public function getName($id)
+	{
+	$this->model->getName($id);
+	}
+	public function getAddress($id)
+	{
+	$this->model->getAddress($id);
+	}
+	public function getNumber($id)
+	{
+	$this->model->getNumber($id);
+	}
+	public function getEmail($id)
+	{
+	$this->model->getEmail($id);
+	}
+	public function getShortBio($id)
+	{
+	$this->model->getShortBio($id);
+	}
+	public function getProfilePicture($id)
+	{
+	$this->model->getProfilePicture($id);
+	}
 	public function index()
 	{
-		$this->load->view('home/header');
-		$this->load->view('home/index');
-		$this->load->view('home/footer');
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
+		$data['slider']=$this->model->getSlider();
+		$this->load->view('home/header',$data);
+		$this->load->view('home/index',$data);
+		$this->load->view('home/footer',$data);
 	}
 	public function biography()
-	{
-		$this->load->view('home/header');
-		$this->load->view('home/biography');
-		$this->load->view('home/footer');
-	}
+		{
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
+		$this->load->view('home/header',$data);
+		$this->load->view('home/biography',$data);
+		$this->load->view('home/footer',$data);
+		}
 	public function contact()
 	{
-		$this->load->view('home/header');
-		$this->load->view('home/contact');
-		$this->load->view('home/footer');
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$this->load->view('home/header',$data);
+		$this->load->view('home/contact',$data);
+		$this->load->view('home/footer',$data);
 	}
 	public function speeches()
 	{
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
 		$data['speeches']=$this->model->getSpeeches();
-		$this->load->view('home/header');
+		$this->load->view('home/header',$data);
 		$this->load->view('home/speeches',$data);
-		$this->load->view('home/footer');
+		$this->load->view('home/footer',$data);
 	}
 	public function media_coverage()
 	{
-		$this->load->view('home/header');
-		$this->load->view('home/media_coverage');
-		$this->load->view('home/footer');
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
+		$data['media_category']=$this->model->getMediaCategory();
+		$data['media']=$this->model->getMedia();
+		$this->load->view('home/header',$data);
+		$this->load->view('home/media_coverage',$data);
+		$this->load->view('home/footer',$data);
+	}
+	public function media_category_wise()
+	{
+		$id=$this->uri->segment(3);
+		if(!empty($id))
+		{
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
+		$data['media_category']=$this->model->getMediaCategory();
+		$data['media_category_wise']=$this->model->getMediaByCatID($id);
+		$this->load->view('home/header',$data);
+		$this->load->view('home/media_category_wise',$data);
+		$this->load->view('home/footer',$data);
+		}
+		else
+		{
+			$this->index();
+		}
+		
+		
 	}
 	public function videos()
 	{
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
 		$data['videos']=$this->model->getVideos();
-		$this->load->view('home/header');
+		$this->load->view('home/header',$data);
 		$this->load->view('home/videos',$data);
-		$this->load->view('home/footer');
+		$this->load->view('home/footer',$data);
 	}
 	public function photos()
 	{
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
 		$data['images']=$this->model->getImages();
-		$this->load->view('home/header');
+		$this->load->view('home/header',$data);
 		$this->load->view('home/photos',$data);
-		$this->load->view('home/footer');
+		$this->load->view('home/footer',$data);
 	}
 	public function getEnquiry()
 	{
@@ -77,20 +169,79 @@ class Home extends CI_Controller {
 			return redirect(base_url().'home/contact');
   		endif;
 	}
-	public function getName()
+	public function register()
 	{
-		echo $this->model->getName(1);
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
+		$this->load->view('home/header',$data);
+		$this->load->view('home/register');
+		$this->load->view('home/footer',$data);
 	}
-	public function getAddress()
+	public function authUser()
 	{
-		echo $this->model->getAddress(1);
+		$name=$this->input->post('name');
+		$mobno=$this->input->post('mobno');
+		$email=$this->input->post('email');
+		$address=$this->input->post('address');
+		$data=array(
+			'name'=>$name,
+			'mobno'=>$mobno,
+			'email'=>$email,
+			'address'=>$address
+		);
+		if($this->model->authUser($data))
+		{
+	  	 	$this->session->set_flashdata('msg', "Registration Successfully");
+				return redirect(base_url().'home/register');
+		}
+		else
+		{
+			$this->session->set_flashdata('msg', "Something went wrong. Try again later");
+				return redirect(base_url().'home/register');
+		}
 	}
-	public function getNumber()
+	public function blog()
 	{
-		echo $this->model->getNumber(1);
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
+		$data['blog']=$this->model->getBlog();
+		$this->load->view('home/header',$data);
+		$this->load->view('home/blog',$data);
+		$this->load->view('home/footer',$data);
 	}
-	public function getEmail()
+	//25 Aug, 2021
+	public function journey()
 	{
-		echo $this->model->getEmail(1);
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
+		$data['journey']=$this->model->getJourney(1);
+		$this->load->view('home/header',$data);
+		$this->load->view('home/journey',$data);
+		$this->load->view('home/footer',$data);
+	}
+	public function achievements()
+	{
+		$data['name']=$this->model->getName(1);
+		$data['mobno']=$this->model->getNumber(1);
+		$data['email']=$this->model->getEmail(1);
+		$data['address']=$this->model->getAddress(1);
+		$data['short_bio']=$this->model->getShortBio(1);
+		$data['profile_picture']=$this->model->getProfilePicture(1);
+		$data['achievements']=$this->model->getAchievements(1);
+		$this->load->view('home/header',$data);
+		$this->load->view('home/achievements',$data);
+		$this->load->view('home/footer',$data);
 	}
 }

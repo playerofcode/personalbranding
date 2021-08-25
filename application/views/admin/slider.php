@@ -6,7 +6,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dashboard');?>">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Media Category</li>
+                                    <li class="breadcrumb-item active" aria-current="page">All Sliders</li>
                                 </ol>
                             </nav>
                         </div>
@@ -18,7 +18,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Add Media Category</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Add Slider</button>
                             </div>
                             <div class="card-body">
                                 <?php if($this->session->flashdata('msg')): ?>
@@ -28,23 +28,25 @@
                                     <table id="zero_config" class="table table-hover table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Category Name</th>
+                                                <th>S.No.</th>
+                                                <th>Image</th>
                                                 <th>Created At</th>
-                                                <th>Edit</th>
-                                                <th>Delete</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
                                             $i=1;
-                                            foreach ($media_category as $key): ?>
+                                            foreach ($slider as $key): ?>
                                               <tr>
                                                 <td><?php echo $i; ?></td>
-                                                <td><?php echo $key->cat_name; ?></td>
+                                                    <td><img src="<?php echo base_url().$key->image; ?>" style="height: 100px;width:120px;border-radius:10px;border:1px dashed orange;box-shadow: 0 5px 10px rgba(0,0,0,0.4);"></td>
                                                 <td><?php echo $key->created_at; ?></td>
-                                                <td><a href="<?php echo base_url('admin/editMediaCategory/'.$key->id);?>" class="btn btn-primary btn-sm">Edit</a></td>
-                                                 <td><a onclick="return confirm('Are you sure?');" href="<?php echo base_url('admin/deleteMediaCategory/'.$key->id);?>" class="btn btn-danger btn-sm">Delete</a></td>
+                                                <td>
+                                                    <a data-toggle="tooltip" data-placement="top" title="Edit" href="<?php echo base_url('admin/edit_slider/'.$key->id);?>"><i class="fa fa-edit m-r-5 m-l-5 text-warning"></i></a>
+                                                    <a data-toggle="tooltip" data-placement="top" title="Remove" onclick="return confirm('Are you sure?');" href="<?php echo base_url('admin/delete_slider/'.$key->id);?>"><i class="fa fa-trash m-r-5 m-l-5 text-danger"></i></a>
+                                                </td>
+                                            </tr>  
                                             <?php $i++;endforeach ?>
                                         </tbody>
                                     </table>
@@ -60,20 +62,20 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Media Categoory</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Slider</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form method="POST" action="<?php echo base_url('admin/addMediaCategory');?>">
+      <form action="<?php echo base_url('admin/addSlider');?>" method="POST" enctype="multipart/form-data">
       <div class="modal-body">
         <div class="form-group">
-            <input type="text" name="cat_name" class="form-control" placeholder="Enter Media Category" required="">
+            <input type="file" name="image" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Add Category</button>
+        <button type="submit" class="btn btn-primary">Add Slider</button>
       </div>
       </form>
     </div>

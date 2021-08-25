@@ -1613,6 +1613,481 @@ class Admin extends CI_Controller {
 	$this->load->view('admin/media_category',$data);
 	$this->load->view('admin/footer');
 	}
+	public function users()
+	{
+	$data['users']=$this->model->getUsers();
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/users',$data);
+	$this->load->view('admin/footer');
+	}
+	public function cell()
+	{
+	$data['cell']=$this->model->getCell();
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/cell',$data);
+	$this->load->view('admin/footer');
+	}
+	public  function deleteCell($id)
+	{
+	if($this->model->deleteCell($id))
+	{
+  	$this->session->set_flashdata('msg', "Cell deleted successfully");
+    return redirect(base_url().'admin/cell');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/cell');
+	}
+	}
+	public function editCell($id)
+	{
+	$data['cell']=$this->model->getCell($id);
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/edit_cell',$data);
+	$this->load->view('admin/footer');
+	}
+	public function addCell()
+	{
+		$cell_name=$this->input->post('cell_name');
+		$data=array(
+			'cell_name'=>$cell_name
+		);
+	if($this->model->addCell($data))
+	{
+  	$this->session->set_flashdata('msg', "Cell added successfully");
+    return redirect(base_url().'admin/cell');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/cell');
+	}
+	}
+	public function updateCell($id)
+	{
+	$cell_name=$this->input->post('cell_name');
+	$data=array('cell_name'=>$cell_name);
+	if($this->model->updateCell($id,$data))
+	{
+  	$this->session->set_flashdata('msg', "Cell updated successfully");
+    return redirect(base_url().'admin/cell');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/cell');
+	}
+	}
+	public function subcell()
+	{
+	$data['cell']=$this->model->getCell();
+	$data['subcell']=$this->model->getSubCell();
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/subcell',$data);
+	$this->load->view('admin/footer');
+	}
+	public function addSubCell()
+	{
+		$cell_id=$this->input->post('cell_id');
+		$subcell_name=$this->input->post('subcell_name');
+		$data=array(
+			'cell_id'=>$cell_id,
+			'subcell_name'=>$subcell_name
+		);
+	if($this->model->addSubCell($data))
+	{
+  	$this->session->set_flashdata('msg', "Sub Cell added successfully");
+    return redirect(base_url().'admin/subcell');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/subcell');
+	}
+	}
+	public function deleteSubCell($id)
+	{
+	if($this->model->deleteSubCell($id))
+	{
+  	$this->session->set_flashdata('msg', "Sub Cell deleted successfully");
+    return redirect(base_url().'admin/subcell');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/subcell');
+	}
+	}
+	public function editSubCell($id)
+	{
+	$data['cell']=$this->model->getCell();
+	$data['subcell']=$this->model->getSubCell($id);
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/edit_subcell',$data);
+	$this->load->view('admin/footer');
+	}
+	public function updateSubCell($id)
+	{
+		$cell_id=$this->input->post('cell_id');
+		$subcell_name=$this->input->post('subcell_name');
+		$data=array(
+			'cell_id'=>$cell_id,
+			'subcell_name'=>$subcell_name
+		);
+	if($this->model->updateSubCell($id,$data))
+	{
+  	$this->session->set_flashdata('msg', "Sub Cell updated successfully");
+    return redirect(base_url().'admin/subcell');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/subcell');
+	}
+	}
+	public function assign($id)
+	{
+	$data['id']=$id;
+	$data['cell']=$this->model->getCell();
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/assign',$data);
+	$this->load->view('admin/footer');
+	}
+	public function getSubCellData()
+	{
+		$cell_id=$this->input->post('cell_id');
+		echo $this->model->getSubCellData($cell_id);
+	}
+	public function user_info()
+	{
+	$data['user_info']=$this->model->getUserInfo(1);
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/user_info',$data);
+	$this->load->view('admin/footer');
+	}
+	public function updateUserInfo($id)
+	{
+		$old_data=$this->model->getUserInfo(1);
+		$old_photo=$old_data[0]->photo;
+		$config=[
+		 	'upload_path'=>'./upload/',
+		 	'allowed_types'=>'gif|jpg|png|pdf|jpeg'
+		 ];
+		 $this->load->library('upload',$config);
+		if($this->upload->do_upload('photo')):
+			if(file_exists($old_photo)):unlink($old_photo);endif;
+		$image=$this->upload->data();
+		$photo="upload/".$image['raw_name'].$image['file_ext'];
+		else:
+		$photo=$old_photo;
+		endif;
+		$name=$this->input->post('name');
+		$email=$this->input->post('email');
+		$mobno=$this->input->post('mobno');
+		$address=$this->input->post('address');
+		$short_bio=$this->input->post('short_bio');
+		$address=$this->input->post('address');
+		$data=array(
+			'name'=>$name,
+			'mobno'=>$mobno,
+			'email'=>$email,
+			'address'=>$address,
+			'short_bio'=>$short_bio,
+			'photo'=>$photo
+		);
+	if($this->model->updateUserInfo($id,$data))
+	{
+  	$this->session->set_flashdata('msg', "User Profile updated successfully");
+    return redirect(base_url().'admin/user_info');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/user_info');
+	}
+	}
+	public function assignUser($id)
+	{
+		$cell_id=$this->input->post('cell_id');
+		$subcell_id=$this->input->post('subcell_id');
+		$data=array(
+			'cell_id'=>$cell_id,
+			'subcell_id'=>$subcell_id
+		);
+	if($this->model->assignUser($id,$data))
+	{
+  	$this->session->set_flashdata('msg', "User assigned successfully");
+    return redirect(base_url().'admin/users');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/users');
+	}
+	}
+	public function deleteMediaCategory($id)
+	{
+	if($this->model->deleteMediaCategory($id))
+	{
+  	$this->session->set_flashdata('msg', "Media Category deleted successfully");
+    return redirect(base_url().'admin/media_category');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/media_category');
+	}	
+	}
+	public function addMediaCategory()
+	{
+		$cat_name=$this->input->post('cat_name');
+		$data=array(
+			'cat_name'=>$cat_name
+		);
+	if($this->model->addMediaCategory($data))
+	{
+  	$this->session->set_flashdata('msg', "Media Category added successfully");
+    return redirect(base_url().'admin/media_category');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/media_category');
+	}
+	}
+	public function editMediaCategory($id)
+	{
+	$data['media_category']=$this->model->getMediaCategory($id);
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/edit_media_category',$data);
+	$this->load->view('admin/footer');
+	}
+	public function updateMediaCategory($id)
+	{
+	$cat_name=$this->input->post('cat_name');
+	$data=array(
+		'cat_name'=>$cat_name
+	);
+	if($this->model->updateMediaCategory($data,$id))
+	{
+  	$this->session->set_flashdata('msg', "Media Category deleted successfully");
+    return redirect(base_url().'admin/media_category');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/media_category');
+	}
+	}
+	public function media()
+	{
+	$data['media_category']=$this->model->getMediaCategory();
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/media',$data);
+	$this->load->view('admin/footer');
+	}
+	public function addMedia()
+	{
+		
+		$config=[
+		 	'upload_path'=>'./upload/',
+		 	'allowed_types'=>'gif|jpg|png|pdf'
+		 ];
+		 $this->load->library('upload',$config);
+		$this->form_validation->set_rules('title', 'Title', 'trim|required|min_length[5]');
+		$this->form_validation->set_rules('description', 'Description', 'required');
+		 if ($this->form_validation->run() && $this->upload->do_upload('image'))
+		 {
+		 	$cat_id=$this->input->post('cat_id');
+		 	$title=$this->input->post('title');
+			$description=$this->input->post('description');
+			$image=$this->upload->data();
+			$image_path="upload/".$image['raw_name'].$image['file_ext'];
+			$data=array(
+					 'cat_id'=>$cat_id,
+					 'title'=>$title,
+					 'description'=>$description,
+					 'image'=>$image_path
+					 );
+			if($this->model->addMedia($data))
+			{
+				 $this->session->set_flashdata('msg', "Media Posted Successfully."); 
+   				 redirect(base_url().'admin/media');
+			}
+			else
+			{
+				$this->session->set_flashdata('msg', "Something went wrong.Try again!"); 
+   				 redirect(base_url().'admin/media');
+			}
+		 }
+		 else
+		 {
+		 	$upload_error=$this->upload->display_errors('<p class="text-danger">', '</p>');
+		 	$this->load->view('admin/header');
+		 	$this->load->view('admin/sidebar');
+			$this->load->view('admin/media',compact('upload_error'));
+			$this->load->view('admin/footer');
+		 }
+	}
+	public function all_media()
+	{
+		$data['media']=$this->model->getMedia();
+		$this->load->view('admin/header');
+	 	$this->load->view('admin/sidebar');
+		$this->load->view('admin/all_media',$data);
+		$this->load->view('admin/footer');
+	}
+	public function deleteMedia($id)
+	{
+		$old_data=$this->model->getMedia($id);
+		$image=$old_data->image;
+	}
+	//24 Aug, 2021
+	public function slider()
+	{
+		$data['slider']=$this->model->getSlider();
+		$this->load->view('admin/header');
+	 	$this->load->view('admin/sidebar');
+		$this->load->view('admin/slider',$data);
+		$this->load->view('admin/footer');
+	}
+	public function delete_slider($id)
+	{
+		$data=$this->model->getSlider($id);
+		$image=$data[0]->image;
+		if(file_exists($image)):unlink($image);endif;
+		if($this->model->deleteGallery($id)):
+		$this->session->set_flashdata('msg', "Slider deleted Successfully."); 
+		redirect(base_url().'admin/slider');
+		else:
+		$this->session->set_flashdata('msg', "Something went wrong.Try again!"); 
+		redirect(base_url().'admin/slider');
+		endif;
+	}
+	public function addSlider()
+	{
+		$config=[
+		 	'upload_path'=>'./upload/',
+		 	'allowed_types'=>'gif|jpg|png|jpeg'
+		 ];
+		 $this->load->library('upload',$config);
+		if($this->upload->do_upload('image'))
+		{
+			$image=$this->upload->data();
+			$image="upload/".$image['raw_name'].$image['file_ext'];
+			$data=array(
+				'image'=>$image
+			);
+		if($this->model->addSlider($data))
+		{
+	  	 	$this->session->set_flashdata('msg', "Slider added successfully");
+				return redirect(base_url().'admin/slider');
+		}
+		else
+		{
+			$this->session->set_flashdata('msg', "Something went wrong. Try again");
+				return redirect(base_url().'admin/slider');
+		}
+		}
+		else
+		{
+		$this->session->set_flashdata('msg',$this->upload->display_errors());
+		return redirect(base_url().'admin/slider');
+		}
+	}
+	public function edit_slider($id)
+	{
+	$data['slider']=$this->model->getSlider($id);
+	$this->load->view('admin/header');
+	$this->load->view('admin/sidebar');
+	$this->load->view('admin/edit_slider',$data);
+	$this->load->view('admin/footer');
+	}
+	public function updateSlider($id)
+	{
+	$old_data=$this->model->getSlider($id);
+	$old_image=$data[0]->image;
+	$config=[
+ 	'upload_path'=>'./upload/',
+ 	'allowed_types'=>'gif|jpg|png|jpeg'
+	 ];
+	 $this->load->library('upload',$config);
+	if($this->upload->do_upload('image')):
+	if(file_exists($old_image)):unlink($old_image);endif;
+	$img=$this->upload->data();
+	$image="upload/".$img['raw_name'].$img['file_ext'];
+	else:
+	$image=$old_image;
+	endif;
+	$data=array(
+		'image'=>$image
+	);
+	if($this->model->updateGallery($data,$id))
+	{
+  	$this->session->set_flashdata('msg', "Gallery updated successfully");
+    return redirect(base_url().'admin/slider');
+	}
+	else
+	{
+	$this->session->set_flashdata('msg', "Something went wrong. Try again");
+	return redirect(base_url().'admin/slider');
+	}
+	}
+	//25 Aug, 2021
+	public function journey()
+	{
+		$data['journey']=$this->model->getJourney(1);
+		$this->load->view('admin/header');
+		$this->load->view('admin/sidebar');
+		$this->load->view('admin/journey',$data);
+		$this->load->view('admin/footer');
+	}
+	public function updateJourney($id)
+	{
+		$content=$this->input->post('content');
+		$data=array(
+			'content'=>$content
+		);
+		if($this->model->updateJourney($data,$id)):
+	  	$this->session->set_flashdata('msg', "journey updated successfully");
+	    return redirect(base_url().'admin/journey');
+		else:
+		$this->session->set_flashdata('msg', "Something went wrong. Try again");
+		return redirect(base_url().'admin/journey');
+		endif;
+	}
+	public function achievements()
+	{
+		$data['achievements']=$this->model->getAchievements(1);
+		$this->load->view('admin/header');
+		$this->load->view('admin/sidebar');
+		$this->load->view('admin/achievements',$data);
+		$this->load->view('admin/footer');
+	}
+	public function updateAchievements($id)
+	{
+		$content=$this->input->post('content');
+		$data=array(
+			'content'=>$content
+		);
+		if($this->model->updateAchievements($data,$id)):
+	  	$this->session->set_flashdata('msg', "Achievements updated successfully");
+	    return redirect(base_url().'admin/achievements');
+		else:
+		$this->session->set_flashdata('msg', "Something went wrong. Try again");
+		return redirect(base_url().'admin/achievements');
+		endif;
+	}
 }//main class end
 
 ?>

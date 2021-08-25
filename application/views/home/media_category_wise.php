@@ -16,7 +16,7 @@
           <div class="col-lg-8">
             <div class="container-fluid">
                 <div class="row">
-                  <?php foreach ($media as $key): ?>
+                  <?php foreach ($media_category_wise as $key): ?>
                   <div class="col-md-12">
                       <div class="card shadow m-2">
                          <div class="card-body">
